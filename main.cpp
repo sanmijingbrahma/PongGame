@@ -2,6 +2,28 @@
 #include <raylib.h>
 using namespace std;
 
+
+class Ball{
+    public:
+        float x, y;
+        int speed_x, speed_y;
+        float radius;
+    
+    void Draw(){
+        // Draw a Circle or a ball
+        DrawCircle(x,y,25,WHITE);
+    }
+
+    // To update the ball's position per second
+    void Update(){
+         x+=speed_x;
+         y+=speed_y;
+    }
+
+};
+
+Ball ball;
+
 int main()
 {
 
@@ -15,15 +37,28 @@ int main()
     // set the FPS fo the game
     SetTargetFPS(60);
 
+    // Properties of the Ball
+    ball.x = screen_width/2;
+    ball.y = screen_height/2;
+    ball.radius = 25;
+    ball.speed_x =7;
+    ball.speed_y = 7;
+
     // Start the game loop- until ESC and close button is clicked
     while (!WindowShouldClose())
     {
 
         // star creating game objects ont the game window
         BeginDrawing();
+        
+            // updating the ball each time
+            ball.Update();
 
-            // Draw a Circle or a ball
-            DrawCircle(screen_width/2,screen_height/2,25,WHITE); 
+            // seting the background color and clearing the prev render
+            ClearBackground(BLACK);
+            
+            
+            ball.Draw();
 
             // Drawing paddles
 
