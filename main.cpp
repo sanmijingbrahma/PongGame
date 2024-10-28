@@ -16,8 +16,17 @@ class Ball{
 
     // To update the ball's position per second
     void Update(){
+        // moving the ball 
          x+=speed_x;
          y+=speed_y;
+
+        //  making the ball so it won't go outside of the window
+        if(y+radius>=GetScreenHeight() || y-radius<=0){
+            speed_y*=-1;
+        }
+        if(x+radius>=GetScreenWidth() || x-radius<=0){
+            speed_x*=-1;
+        }
     }
 
 };
@@ -57,7 +66,7 @@ int main()
             // seting the background color and clearing the prev render
             ClearBackground(BLACK);
             
-            
+
             ball.Draw();
 
             // Drawing paddles
