@@ -28,7 +28,10 @@ int main()
             // Drawing paddles
 
             DrawRectangle(10,screen_height/2-60,20,120,WHITE);
-            DrawRectangle(screen_width-20,(screen_height/2)-60,20,120,WHITE);   
+            DrawRectangle(screen_width-30,(screen_height/2)-60,20,120,WHITE); 
+
+            // Drawing a line in the center
+            DrawLine(screen_width/2,0,screen_width/2,screen_width,WHITE);  
 
         EndDrawing();
     }
